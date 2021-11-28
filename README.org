@@ -1,0 +1,15 @@
+* staples
+ a flutter-application for managing provisions
+** log
+*** creation
+**** create/copy nix-shell related files
+=nix=
+=.dir-locals.el=
+=.envrc=
+=shell.nix=
+***** ignore =.direnv=
+**** flutter
+#+BEGIN_SRC shell :results drawer
+  flutter create --project-name samples .
+#+END_SRC
+
