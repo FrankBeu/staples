@@ -1,7 +1,7 @@
 * staples
  a flutter-application for managing provisions
 ** log
-*** creation
+*** setup
 **** create/copy nix-shell related files
 =nix=
 =.dir-locals.el=
@@ -24,6 +24,7 @@ https://www.youtube.com/channel/UCT-_RvXQ3TxFIoDT-WrnJLw/videos
 https://medium.com/flutter-community/flutter-golden-tests-compare-widgets-with-snapshots-27f83f266cea
 https://pub.dev/packages/golden_toolkit
 ****** Add =launch.json=
+******* TODO to display *golden-CodeLense*
 ****** generate/update goldens
 #+BEGIN_SRC shell :results drawer
   flutter test --update-goldens
@@ -42,3 +43,161 @@ https://pub.dev/packages/golden_toolkit
 #+BEGIN_SRC shell :results drawer
   flutter pub run build_runner watch --delete-conflicting-outputs
 #+END_SRC
+***** Mocks
+****** Mock dependencies using Mockito | Flutter
+https://docs.flutter.dev/cookbook/testing/unit/mocking#3-create-a-test-file-with-a-mock-httpclient
+****** mockito
+#+BEGIN_SRC shell :results drawer
+  flutter pub add -d mockito
+#+END_SRC
+******* mockito | Dart Package
+https://pub.dev/packages/mockito
+*** Architecture
+**** clean architecture
+https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+**** Flutter Clean Architecture & TDD Course - Reso Coder
+https://resocoder.com/flutter-clean-architecture-tdd/
+**** Flutter Clean Architecture Series — Part 1 | by AbdulMuaz Aqeel | Medium
+https://devmuaz.medium.com/flutter-clean-architecture-series-part-1-d2d4c2e75c47
+https://devmuaz.medium.com/flutter-clean-architecture-series-part-2-bcdf9d38fe41
+https://devmuaz.medium.com/flutter-clean-architecture-series-part-3-cdfbcb8d449b
+https://github.com/devmuaz/flutter_clean_architecture/tree/part1_setup
+**** Reflecting architecture and domain in code – @hgraca
+https://herbertograca.com/2019/06/05/reflecting-architecture-and-domain-in-code/
+**** A Flutter BLoC + Clean Architecture journey to release the #1st Idean Flutter app | by Etienne Cadic | Ideas by Idean | Medium
+https://medium.com/ideas-by-idean/a-flutter-bloc-clean-architecture-journey-to-release-the-1st-idean-flutter-app-db218021a804
+***** TODO split layers into packages
+at =projectRoot=:
+=lib= presentation layer: All the UI stuff, widgets and design utils
+=data= layer: All the input data stuff (from async sources)
+=core= useful to share code between layers
+=domain= layer: the business layer, manipulating pure entities through usecases.
+**** create directory-tree
+in =lib= and =test=
+***** do not use verticalPartitioning (one tree for each feature)
+#+BEGIN_EXAMPLE shell
+mkdir -p config/{routes,themes} \
+         core/utils \
+         data/{datasources/{local,remote},models,repositories} \
+         domain/{entities,repositories,usecases} \
+         presentation/{bloc,views,widgets}
+#+END_EXAMPLE
+#+BEGIN_EXAMPLE shell
+mkdir -p config core data/{datasources/{local,remote},models,repositories} domain/{entities,repositories,usecases} presentation/{bloc,views,widgets}
+#+END_EXAMPLE
+*** Dependencies
+**** serviceLocator
+#+BEGIN_SRC shell :results drawer
+  flutter pub add get_it
+#+END_SRC
+***** TODO DependencyInjection
+:LOGBOOK:
+- State "TODO"       from              [2021-11-29 Mon 18:31]
+:END:
+https://pub.dev/packages/injectable
+#+BEGIN_SRC shell :results drawer
+  flutter pub add injectable
+  flutter pub add -d injectable_generator
+#+END_SRC
+****** use buildrunner
+**** stateManagement
+#+BEGIN_SRC shell :results drawer
+  flutter pub add flutter_bloc
+#+END_SRC
+**** valueEquality
+#+BEGIN_SRC shell :results drawer
+  flutter pub add equatable
+#+END_SRC
+***** Dart Equatable Package: Simplify Equality Comparisons | by Felix Angelov | Flutter Community | Medium
+https://medium.com/flutter-community/dart-equatable-package-simplify-equality-comparisons-1a96a3fc4864
+**** functionalProgramming
+#+BEGIN_SRC shell :results drawer
+  flutter pub add dartz
+#+END_SRC
+**** remote
+#+BEGIN_SRC shell :results drawer
+  flutter pub add data_connection_checker
+  flutter pub add http
+#+END_SRC
+**** cache
+#+BEGIN_SRC shell :results drawer
+  flutter pub add shared_preferences
+#+END_SRC
+*** Routing
+Navigator1.0 examples not working - use Navigator2.0 instead
+**** Navigation
+https://bloclibrary.dev/#/recipesflutternavigation?id=navigation-20
+#+BEGIN_SRC go :results drawer
+flutter pub add flow_builder
+#+END_SRC
+**** Navigating Navigator 2.0 with Flow Builder
+https://verygood.ventures/blog/navigator-with-flow-builder
+** TODO TODOS
+*** localization
+**** google/app-resource-bundle
+https://github.com/google/app-resource-bundle
+**** Flutter ARB file (.arb) - Localizely
+https://localizely.com/flutter-arb/
+**** A Localization and Translation Software Tool | Lokalise
+https://lokalise.com/
+*** staticLinting??
+**** Code Quality and Code Security | SonarQube
+https://www.sonarqube.org/
+*** testReporting
+**** Flutter Test Reports : Current state of art | by Etienne Cadic | Ideas by Idean | Medium
+https://medium.com/ideas-by-idean/flutter-test-reports-in-cis-current-state-of-art-8968b0c8dd4a
+*** persistence
+**** floor | Flutter Package
+https://pub.dev/packages/floor
+*** apiCalls
+**** retrofit | Dart Package
+https://pub.dev/packages/retrofit
+*** hooks
+**** flutter_hooks | Flutter Package
+https://pub.dev/packages/flutter_hooks
+*** storeFetchedImages
+where??
+*** how to test local state
+sourceOfTruth for
+**** syncing??
+would you like to send or fetch data
+diffing??
+*** [#A] The Software Architecture Chronicles – @hgraca
+https://herbertograca.com/2017/07/03/the-software-architecture-chronicles/
+**** hgraca/explicit-architecture-php: This repository is a demo of Explicit Architecture, using the Symfony Demo Application.
+https://github.com/hgraca/explicit-architecture-php
+* WORKFLOW
+** create =FEATURE.feature=
+start by defining a BDD-Feature
+** TDD
+*** write test first
+**** mocks
+***** generate mocks automatically
+****** by implementing the nec dependencies
+****** annotate with
+=NAME_test.dart=
+#+BEGIN_EXAMPLE dart
+@GenerateMocks([http.Client])
+#+END_EXAMPLE
+****** treat compilation-errors of missing mockées as usual
+***** DEPRECATED generate mocks manually
+** always start at the innermost center
+*** Entities - have no dependencies
+** DOMAIN
+TDD
+** DATA
+TDD
+** PRESENTATION
+*** BLoC
+TDD
+** register for DI
+** Presentation
+*** create a dummy first
+**** Placeholder class - widgets library - Dart API
+https://api.flutter.dev/flutter/widgets/Placeholder-class.html
+*** Widgets
+BDD
+*** Pages
+BDD
+** secure UI with ~goldenTests~
+*** after  =FEATURE.feature= passes
