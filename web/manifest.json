@@ -1,6 +1,6 @@
 {
-    "name": "samples",
-    "short_name": "samples",
+    "name": "staples",
+    "short_name": "staples",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

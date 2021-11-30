@@ -10,7 +10,7 @@
 ***** ignore =.direnv=
 **** flutter
 #+BEGIN_SRC shell :results drawer
-  flutter create --project-name samples .
+  flutter create --project-name staples .
 #+END_SRC
 **** add testing dependecies
 #+BEGIN_SRC shell :results drawer

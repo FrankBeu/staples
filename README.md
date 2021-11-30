@@ -1,4 +1,4 @@
-# samples
+# staples
 
 A new Flutter project.
 

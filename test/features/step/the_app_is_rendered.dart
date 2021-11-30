@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:samples/main.dart';
+import 'package:staples/main.dart';
 
 Future<void> theAppIsRendered(WidgetTester tester) async {
   // throw UnimplementedError();
