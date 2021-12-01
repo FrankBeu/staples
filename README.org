@@ -142,16 +142,47 @@ GTIN is the series of numbers associated with a barcode.
 GTIN codes are part of larger global data structures that help identify a company’s unique product.
 UPC, EAN, and ISBN are all GTINs.
 GTIN is the number encoded into either a UPC, EAN, or ISBN barcode.
-**** TODO run only specified tests
+**** run only specified tests
 https://pub.dev/packages/test#tagging-tests
 because bdd-Tests are generated, they cannot be tagged.
 Tag unit tests instead
+***** NOT-WORKING annotations
+The annotation 'Tags' can only be used on libraries (lsp)
 #+BEGIN_EXAMPLE dart
 @Tags(['unit', 'FEATURE-NAME'])
 #+END_EXAMPLE
 #+BEGIN_SRC shell :results drawer
   flutter test -t unit products
 #+END_SRC
+***** use test-parameter instead
+#+BEGIN_EXAMPLE dart
+  test('should ...',
+      () async {
+    when()
+        .thenAnswer();
+
+    // act
+    final result = await actor()
+
+    // assert
+    expect();
+    verify();
+    verifyNoMoreInteractions();
+  }, tags: ['unit', 'product']);
+#+END_EXAMPLE
+***** usage
+#+BEGIN_EXAMPLE shell :results drawer
+flutter test -t unit,product
+flutter test -t "(unit) && !(product)"
+#+END_EXAMPLE
+**** tests
+***** empty test-files will break the run
+***** configuration
+****** TODO test/configuration.md at master · dart-lang/test
+:LOGBOOK:
+- State "TODO"       from              [2021-12-01 Wed 18:26]
+:END:
+https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md#configuring-tags
 **** generate entity
 the main dataProvider will be *ecoinform.de*
 roughly base the entity on the provided data
@@ -171,6 +202,29 @@ roughly base the entity on the provided data
     //...
   }
 #+END_SRC
+**** TDD
+***** mocks
+****** have to be generated automatically
+because of nullSafty
+https://github.com/dart-lang/mockito/blob/master/NULL_SAFETY_README.md
+1. import mockito
+    #+BEGIN_EXAMPLE dart
+    import 'package:mockito/annotations.dart';
+    import 'package:mockito/mockito.dart';
+    #+END_EXAMPLE
+2. annotate
+    #+BEGIN_EXAMPLE dart
+    @GenerateMocks([ProductRepository])
+    #+END_EXAMPLE
+3. generate mocks
+   #+BEGIN_SRC shell :results drawer
+     flutter pub run build_runner build
+   #+END_SRC
+4. import generated mocks
+   #+BEGIN_EXAMPLE dart
+     import 'getAllProducts_test.mocks.dart'
+   #+END_EXAMPLE
+5. use
 ** TODO TODOS
 *** localization
 **** google/app-resource-bundle
