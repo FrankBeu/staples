@@ -132,6 +132,39 @@ flutter pub add flow_builder
 #+END_SRC
 **** Navigating Navigator 2.0 with Flow Builder
 https://verygood.ventures/blog/navigator-with-flow-builder
+*** Feature: Products
+**** EAN-13
+***** International Article Number - Wikipedia
+https://en.wikipedia.org/wiki/International_Article_Number
+**** TODO run only specified tests
+https://pub.dev/packages/test#tagging-tests
+because bdd-Tests are generated, they cannot be tagged.
+Tag unit tests instead
+#+BEGIN_EXAMPLE dart
+@Tags(['unit', 'FEATURE-NAME'])
+#+END_EXAMPLE
+#+BEGIN_SRC shell :results drawer
+  flutter test -t unit products
+#+END_SRC
+**** generate entity
+the main dataProvider will be *ecoinform.de*
+roughly base the entity on the provided data
+***** example
+[[./doc/productTarget.html]]
+***** TODO use categories-tree
+***** TODO item
+#+BEGIN_SRC dart
+  class Item extends Product {
+
+    //...
+    final Date bb; // BestBefore(End)
+    final int _priceInCent;
+
+    double get price(int priceInCent) => double(priceInCent/100);
+    int set _priceInCent(num price) => price is int ? price : price * 100;
+    //...
+  }
+#+END_SRC
 ** TODO TODOS
 *** localization
 **** google/app-resource-bundle
