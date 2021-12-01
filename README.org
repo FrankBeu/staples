@@ -12,20 +12,39 @@
 #+BEGIN_SRC shell :results drawer
   flutter create --project-name staples .
 #+END_SRC
+*** Testing
+https://www.youtube.com/channel/UCT-_RvXQ3TxFIoDT-WrnJLw/videos
 **** add testing dependecies
 #+BEGIN_SRC shell :results drawer
-  flutter pub add -d golden_toolkit
   flutter pub add -d bdd_widget_test
   flutter pub add -d build_runner
+  flutter pub add -d golden_toolkit
 #+END_SRC
-**** Testing
-https://www.youtube.com/channel/UCT-_RvXQ3TxFIoDT-WrnJLw/videos
-***** golden
+**** BDD
+***** generate tests (~steps~ have to be updated manually)
+****** oneShot
+#+BEGIN_SRC shell :results drawer
+  flutter pub run build_runner build
+#+END_SRC
+****** continuously
+#+BEGIN_SRC shell :results drawer
+  flutter pub run build_runner watch --delete-conflicting-outputs
+#+END_SRC
+**** Mocks
+***** Mock dependencies using Mockito | Flutter
+https://docs.flutter.dev/cookbook/testing/unit/mocking#3-create-a-test-file-with-a-mock-httpclient
+***** mockito
+#+BEGIN_SRC shell :results drawer
+  flutter pub add -d mockito
+#+END_SRC
+****** mockito | Dart Package
+https://pub.dev/packages/mockito
+**** golden
 https://medium.com/flutter-community/flutter-golden-tests-compare-widgets-with-snapshots-27f83f266cea
 https://pub.dev/packages/golden_toolkit
-****** Add =launch.json=
-******* TODO to display *golden-CodeLense*
-****** generate/update goldens
+***** Add =launch.json=
+****** TODO to display *golden-CodeLense*
+***** generate/update goldens
 #+BEGIN_SRC shell :results drawer
   flutter test --update-goldens
   flutter test --update-goldens --tags=golden
@@ -33,25 +52,6 @@ https://pub.dev/packages/golden_toolkit
 #+BEGIN_EXAMPLE shell
   flutter test --update-goldens <PATH_TO_TEST_FILE>
 #+END_EXAMPLE
-***** BDD
-****** generate tests (~steps~ have to be updated manually)
-******* oneShot
-#+BEGIN_SRC shell :results drawer
-  flutter pub run build_runner build
-#+END_SRC
-******* continuously
-#+BEGIN_SRC shell :results drawer
-  flutter pub run build_runner watch --delete-conflicting-outputs
-#+END_SRC
-***** Mocks
-****** Mock dependencies using Mockito | Flutter
-https://docs.flutter.dev/cookbook/testing/unit/mocking#3-create-a-test-file-with-a-mock-httpclient
-****** mockito
-#+BEGIN_SRC shell :results drawer
-  flutter pub add -d mockito
-#+END_SRC
-******* mockito | Dart Package
-https://pub.dev/packages/mockito
 *** Architecture
 **** clean architecture
 https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
