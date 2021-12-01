@@ -136,6 +136,12 @@ https://verygood.ventures/blog/navigator-with-flow-builder
 **** EAN-13
 ***** International Article Number - Wikipedia
 https://en.wikipedia.org/wiki/International_Article_Number
+***** difference GTIN - EAN
+****** GTIN GlobalTradeItemNumber.
+GTIN is the series of numbers associated with a barcode.
+GTIN codes are part of larger global data structures that help identify a company’s unique product.
+UPC, EAN, and ISBN are all GTINs.
+GTIN is the number encoded into either a UPC, EAN, or ISBN barcode.
 **** TODO run only specified tests
 https://pub.dev/packages/test#tagging-tests
 because bdd-Tests are generated, they cannot be tagged.

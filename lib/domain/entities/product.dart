@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 //// dkey:    content of the related .dkey
 //// tv:      content of the preceding .tv_name
 class Product extends Equatable {
-  final int ean; // EuropeanArticleNumber tv: 'GTIN Stück'
+  final int gtin; // EuropeanArticleNumber tv: 'GTIN Stück'
   final String producerIconPath; // mrk_bild
   final String producerIconAlt; // mrk_bild
   final String imagePath; // p_bild
@@ -49,7 +49,7 @@ class Product extends Equatable {
   // TODO final Category category
 
   const Product({
-    required this.ean,
+    required this.gtin,
     this.producerIconPath,
     this.producerIconAlt,
     this.imagePath,
@@ -90,7 +90,7 @@ class Product extends Equatable {
   @override
   List<Object> get props {
     return [
-      ean,
+      gtin,
       producerIconPath,
       producerIconAlt,
       imagePath,
