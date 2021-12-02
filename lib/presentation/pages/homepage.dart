@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staples/presentation/pages/productPage.dart';
 
 class HomePage extends StatelessWidget {
   final String appName;
@@ -12,11 +13,19 @@ class HomePage extends StatelessWidget {
             // title: Text(appName),
             ),
         body: Center(
-            child: Text(appName,
-                // style: Theme.of(context).textTheme.headline2,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontSize: 64.0,
-                ))));
+            child: GestureDetector(
+                onTap: () {
+                  print('pushing to ProductPage');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProductPage()),
+                  );
+                },
+                child: Text(appName,
+                    // style: Theme.of(context).textTheme.headline2,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 64.0,
+                    )))));
   }
 }

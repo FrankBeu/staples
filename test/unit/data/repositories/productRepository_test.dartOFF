@@ -1,0 +1,99 @@
+import 'dart:async';
+
+import 'package:dartz/dartz.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:sqflite_common/sqlite_api.dart';
+import 'package:staples/core/error/failures.dart';
+import 'package:staples/data/datasources/local/DAO/productDAO.dart';
+import 'package:staples/data/datasources/local/app_database.dart';
+import 'package:staples/data/models/productModel.dart';
+import 'package:staples/data/repositories/productRepository.dart';
+import 'package:staples/domain/entities/product.dart';
+
+import 'productRepository_test.mocks.dart';
+
+// TODO not working Fake.noSuchMethod
+class MockAppDatabase implements AppDatabase {
+  @override
+  StreamController<String> changeListener;
+
+  @override
+  DatabaseExecutor database;
+
+  ProductDao productDao;
+
+  MockAppDatabase(this.productDao, this.changeListener, this.database);
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    throw UnimplementedError();
+  }
+
+  // @override
+  // TODO: implement productDao
+  // ProductDao get productDao => throw UnimplementedError();
+  // ProductDao get productDao => throw UnimplementedError();
+}
+// Fake class
+// class FakeProductDao extends Fake implements ProductDao {
+// // class MockProductDao extends Mock implements ProductDao {
+//   Future<List<Product>> val = Future.value([Product(gtin: 8711812414870)]);
+//   @override
+//   Future<List<Product>> getAllProducts() => val;
+// }
+
+// @GenerateMocks([AppDatabase, ProductDao])
+// @GenerateMocks([AppDatabase])
+@GenerateMocks([ProductDao, DatabaseExecutor, StreamController<String>])
+void main() {
+  late ProductRepository repository;
+  late MockAppDatabase mockAppDatabase;
+  late MockProductDao mockProductDao;
+  // late FakeProductDao fakeProductDao;
+  late DatabaseExecutor databaseExecutor;
+  late StreamController streamController;
+
+  setUp(() {
+    // mockAppDatabase = MockAppDatabase();
+    mockProductDao = MockProductDao();
+
+    databaseExecutor = MockDatabaseExecutor();
+    streamController = MockStreamController<String>();
+    mockAppDatabase = MockAppDatabase(
+      mockProductDao,
+      streamController,
+      databaseExecutor,
+    );
+    // fakeProductDao = FakeProductDao();
+    repository = ProductRepository(mockAppDatabase);
+  });
+
+  group('getAllProducts', () {
+    final tGtin = 8711812414870;
+    final tProductModel = ProductModel(gtin: tGtin);
+    final Product tProduct = tProductModel;
+    final List<Product> tProductList = [tProduct];
+
+    test(
+      'should return all products',
+      () async {
+        // arrange
+        // when(mockAppDatabase.productDao).thenReturn(mockProductDao);
+        // when(mockAppDatabase.productDao).thenReturn(fakeProductDao);
+        // when(mockAppDatabase.productDao.getAllProducts())
+        when(mockProductDao.getAllProducts())
+            .thenAnswer((_) async => tProductList);
+
+        // act
+        final result = await repository.getAllProducts();
+
+        // assert
+        verify(repository.getAllProducts());
+        // expect(result, equals(Right<Failure, List<Product>>([tProduct])));
+      },
+      tags: ['unit', 'product', 'skip'], // TODO not working Fake.noSuchMethod
+    );
+  });
+}

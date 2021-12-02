@@ -1,7 +1,7 @@
 import 'package:staples/domain/entities/product.dart';
 
 class ProductModel extends Product {
-  ProductModel({
+  const ProductModel({
     required final int gtin,
     final String producerIconPath = '',
     final String producerIconAlt = '',
@@ -75,4 +75,10 @@ class ProductModel extends Product {
           allergy: allergy,
           rating: rating,
         );
+
+  factory ProductModel.fromJson(Map<String, dynamic> map) {
+    return ProductModel(
+      gtin: map['gtin'] as int,
+    );
+  }
 }

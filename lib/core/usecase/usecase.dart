@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:staples/core/failures.dart';
+import 'package:staples/core/error/failures.dart';
 
 /// ensure every usecase is callable
 abstract class UseCase<Type, Params> {

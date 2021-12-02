@@ -9,8 +9,8 @@ Feature: Products
     Examples:
       |        EAN-13 |
       | 1234567890123 |
-      | 1111111111111 |
-      | 2222222222222 |
+      # | 1111111111111 |
+      # | 2222222222222 |
 
 
   # @testMethodName: testGoldens

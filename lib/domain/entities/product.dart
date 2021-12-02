@@ -1,10 +1,14 @@
 import 'package:equatable/equatable.dart';
+import 'package:floor/floor.dart';
+import 'package:staples/config/constants.dart';
 
 //// comments are identifier used by ecoinform.de
 //// default: css-classes of the container-element or nearest element
 //// dkey:    content of the related .dkey
 //// tv:      content of the preceding .tv_name
+@Entity(tableName: productTableName)
 class Product extends Equatable {
+  @PrimaryKey()
   final int gtin; // EuropeanArticleNumber tv: 'GTIN Stück'
   final String producerIconPath; // mrk_bild
   final String producerIconAlt; // mrk_bild

@@ -23,11 +23,11 @@ void main() {
     usecase = GetAllProducts(mockProductRepository);
   });
 
-  final tGTIN_1 = 8711812414870;
-  final tGTIN_2 = 8711812414597;
+  final tGtin_1 = 8711812414870;
+  final tGtin_2 = 8711812414597;
   final List<Product> tProductList = [
-    Product(gtin: tGTIN_1),
-    Product(gtin: tGTIN_2)
+    Product(gtin: tGtin_1),
+    Product(gtin: tGtin_2)
   ];
 
   test('should get the product with the given GTIN from the repository',

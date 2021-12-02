@@ -3,12 +3,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:golden_toolkit/golden_toolkit.dart';
 
 import './step/the_app_is_running.dart';
 import './step/i_see_text.dart';
 import './step/the_app_is_rendered.dart';
 import './step/screenshot_verified.dart';
+
+import 'package:golden_toolkit/golden_toolkit.dart';
 
 void main() {
   group('''Homepage''', () {

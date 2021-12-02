@@ -6,7 +6,7 @@ import 'dart:async' as _i4;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:staples/core/failures.dart' as _i5;
+import 'package:staples/core/error/failures.dart' as _i5;
 import 'package:staples/domain/entities/product.dart' as _i6;
 import 'package:staples/domain/repositories/productRepository.dart' as _i3;
 
@@ -29,23 +29,18 @@ class MockProductRepository extends _i1.Mock implements _i3.ProductRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.Product>> getProduct(int? ean) =>
-      (super.noSuchMethod(Invocation.method(#getProduct, [ean]),
-              returnValue: Future<_i2.Either<_i5.Failure, _i6.Product>>.value(
-                  _FakeEither_0<_i5.Failure, _i6.Product>()))
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.Product>>);
-  @override
   _i4.Future<_i2.Either<_i5.Failure, List<_i6.Product>>> getAllProducts() =>
       (super.noSuchMethod(Invocation.method(#getAllProducts, []),
           returnValue: Future<_i2.Either<_i5.Failure, List<_i6.Product>>>.value(
               _FakeEither_0<_i5.Failure, List<_i6.Product>>())) as _i4
           .Future<_i2.Either<_i5.Failure, List<_i6.Product>>>);
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.Product>> addProduct(int? ean) =>
-      (super.noSuchMethod(Invocation.method(#addProduct, [ean]),
-              returnValue: Future<_i2.Either<_i5.Failure, _i6.Product>>.value(
-                  _FakeEither_0<_i5.Failure, _i6.Product>()))
-          as _i4.Future<_i2.Either<_i5.Failure, _i6.Product>>);
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.Product>>> addProduct(
+          int? gtin) =>
+      (super.noSuchMethod(Invocation.method(#addProduct, [gtin]),
+          returnValue: Future<_i2.Either<_i5.Failure, List<_i6.Product>>>.value(
+              _FakeEither_0<_i5.Failure, List<_i6.Product>>())) as _i4
+          .Future<_i2.Either<_i5.Failure, List<_i6.Product>>>);
   @override
   String toString() => super.toString();
 }

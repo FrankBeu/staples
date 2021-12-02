@@ -1,0 +1,11 @@
+import 'dart:convert';
+
+import 'package:meta/meta.dart';
+import 'package:staples/data/models/productModel.dart';
+
+abstract class ProductLocalDataSource {
+  Future<List<ProductModel>> getAllProducts();
+  Future<ProductModel?> getProduct(int gtin);
+  Future<void> insertProduct(ProductModel product);
+  // Future<void> deleteProduct(Product product);
+}

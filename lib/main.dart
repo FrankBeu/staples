@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'presentation/pages/homepage.dart';
 import 'config/constants.dart';
+import 'injectionContainer.dart' as di;
+import 'presentation/pages/productPage.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 
@@ -17,6 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.brown,
       ),
       home: HomePage(appName: appName),
+      // home: ProductPage(),
     );
   }
 }
