@@ -19,10 +19,10 @@ class _ProductControlsState extends State<ProductControls> {
   Widget build(BuildContext context) {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-
     return Column(
       children: <Widget>[
         TextField(
+          key: Key('gtinInput'),
           controller: controller,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(

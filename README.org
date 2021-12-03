@@ -21,10 +21,53 @@ https://www.youtube.com/channel/UCT-_RvXQ3TxFIoDT-WrnJLw/videos
   flutter pub add -d golden_toolkit
 #+END_SRC
 **** BDD
+***** Gherkin
+****** be careful
+******* fail
+#+BEGIN_EXAMPLE
+    When I enter {'EAN-13'} text into {0} text field
+#+END_EXAMPLE
+will result in
+=i_enter_text_into_text_field.dart=
+#+BEGIN_EXAMPLE dart
+import 'package:flutter_test/flutter_test.dart';
+
+Future<void> iEnterTextIntoTextField(WidgetTester tester, dynamic param1, dynamic param2) async {
+  throw UnimplementedError();
+}
+#+END_EXAMPLE
+******* success
+#+BEGIN_EXAMPLE
+    When I enter {'EAN-13'} into {0} input field
+#+END_EXAMPLE
+                                                 ^             ^^^
+will result in
+=i_enter_into_input_field.dart=
+#+BEGIN_EXAMPLE dart
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+/// Example: When I enter {'text'} into {1} input field
+Future<void> iEnterIntoInputField(
+  WidgetTester tester,
+  String text,
+  int index,
+) async {
+  final textField = find.byType(TextField).at(index);
+
+  await tester.enterText(textField, text);
+}
+#+END_EXAMPLE
+****** step-definitions in
+=~/.pub-cache/hosted/pub.dartlang.org/bdd_widget_test-1.2.1/lib/step/i_enter_into_input_field.dart=
 ***** generate tests (~steps~ have to be updated manually)
 ****** oneShot
 #+BEGIN_SRC shell :results drawer
   flutter pub run build_runner build
+#+END_SRC
+******* only tests
+#+BEGIN_SRC shell :results drawer
+  flutter pub run build_runner build test
 #+END_SRC
 ****** continuously
 #+BEGIN_SRC shell :results drawer
