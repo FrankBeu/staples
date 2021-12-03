@@ -9,6 +9,9 @@
    id="svg5"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    sodipodi:docname="BDD.svg"
+   inkscape:export-filename="/home/frank/AKTUELLES/CIM/FLUTTER/staples/doc/BDD.png"
+   inkscape:export-xdpi="384"
+   inkscape:export-ydpi="384"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.38529391"
-     inkscape:cx="-170.00009"
-     inkscape:cy="1075.8021"
+     inkscape:zoom="1.0897757"
+     inkscape:cx="445.96331"
+     inkscape:cy="355.57774"
      inkscape:window-width="1916"
      inkscape:window-height="1048"
      inkscape:window-x="0"
@@ -121,6 +124,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#ffffff;stroke-width:0.264999;stroke-linejoin:round"
+       id="rect941"
+       width="297.01172"
+       height="210.01747"
+       x="0"
+       y="0" />
     <circle
        style="fill:#b3b3b3;stroke:none;stroke-width:0.238;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        id="path31"
@@ -182,7 +192,7 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6259);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="80.226562"
          y="126.67383"
-         id="tspan135727">BDD</tspan></text>
+         id="tspan1090">BDD</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.238;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect15185"
@@ -226,9 +236,9 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect15191);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="80.226562"
          y="147.9082"
-         id="tspan135731"><tspan
+         id="tspan1094"><tspan
            style="font-size:64px;-inkscape-font-specification:'sans-serif, Normal'"
-           id="tspan135729">Feature</tspan></tspan></text>
+           id="tspan1092">Feature</tspan></tspan></text>
     <path
        sodipodi:type="star"
        style="fill:#b3b3b3;stroke:none;stroke-linejoin:round"
@@ -254,7 +264,7 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect10853);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="80.226562"
          y="126.67383"
-         id="tspan135733">golden</tspan></text>
+         id="tspan1096">golden</tspan></text>
     <path
        sodipodi:type="star"
        style="fill:#b3b3b3;stroke:none;stroke-linejoin:round"
@@ -424,9 +434,9 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect85057);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="80.226562"
          y="133.75195"
-         id="tspan135737"><tspan
+         id="tspan1100"><tspan
            style="font-size:48px;-inkscape-font-specification:'sans-serif, Normal'"
-           id="tspan135735">Domain</tspan></tspan></text>
+           id="tspan1098">Domain</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,203.74136,153.53121)"
@@ -434,9 +444,9 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect97107);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="80.226562"
          y="133.75195"
-         id="tspan135741"><tspan
+         id="tspan1104"><tspan
            style="font-size:48px;-inkscape-font-specification:'sans-serif, Normal'"
-           id="tspan135739">Data</tspan></tspan></text>
+           id="tspan1102">Data</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-17.568451,157.81187)"
@@ -444,9 +454,9 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect102437);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="80.226562"
          y="133.75195"
-         id="tspan135745"><tspan
+         id="tspan1108"><tspan
            style="font-size:48px;-inkscape-font-specification:'sans-serif, Normal'"
-           id="tspan135743">Presentation</tspan></tspan></text>
+           id="tspan1106">Presentation</tspan></tspan></text>
     <g
        id="g107823"
        transform="translate(-103.93621,119.3209)">
@@ -598,7 +608,7 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect132212);fill:#000000;fill-opacity:1;stroke:none"><tspan
          x="80.226562"
          y="126.67383"
-         id="tspan135747">DI</tspan></text>
+         id="tspan1110">DI</tspan></text>
     <g
        id="g134996"
        transform="translate(-5.0926579,72.637191)">
