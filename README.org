@@ -1,5 +1,13 @@
 * staples
  a flutter-application for managing provisions
+** RESULT
+[[./doc/BDD.png]]
+** run
+disable null safety
+#+BEGIN_SRC shell :results drawer
+  flutter run  --no-sound-null-safety
+#+END_SRC
+*** TODO update bloc
 ** log
 *** setup
 **** create/copy nix-shell related files
@@ -315,6 +323,7 @@ diffing??
 https://herbertograca.com/2017/07/03/the-software-architecture-chronicles/
 **** hgraca/explicit-architecture-php: This repository is a demo of Explicit Architecture, using the Symfony Demo Application.
 https://github.com/hgraca/explicit-architecture-php
+
 * WORKFLOW
 ** create =FEATURE.feature=
 start by defining a BDD-Feature
